@@ -1,0 +1,29 @@
+---
+import { categoryInfo, formatDate, isoDate, url } from "../consts";
+import { postPath, type Post } from "../lib/posts";
+
+interface Props {
+  posts: Post[];
+}
+
+const { posts } = Astro.props;
+---
+
+<ul class="post-list">
+  {
+    posts.map((post) => (
+      <li class="post-card">
+        <div class="post-card-meta">
+          <a class="post-card-category" href={url(`/categories/${post.data.category}/`)}>
+            {categoryInfo(post.data.category)?.name ?? post.data.category}
+          </a>
+          <time datetime={isoDate(post.data.pubDate)}>{formatDate(post.data.pubDate)}</time>
+        </div>
+        <h2 class="post-card-title">
+          <a href={postPath(post)}>{post.data.title}</a>
+        </h2>
+        <p class="post-card-excerpt">{post.data.description}</p>
+      </li>
+    ))
+  }
+</ul>

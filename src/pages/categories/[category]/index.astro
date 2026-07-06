@@ -1,0 +1,27 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PostList from "../../../components/PostList.astro";
+import { CATEGORIES } from "../../../consts";
+import { getPublishedPosts } from "../../../lib/posts";
+
+export const getStaticPaths = (async () => {
+  const posts = await getPublishedPosts();
+  return CATEGORIES.map((cat) => ({
+    params: { category: cat.slug },
+    props: { cat, posts: posts.filter((p) => p.data.category === cat.slug) },
+  }));
+}) satisfies GetStaticPaths;
+
+const { cat, posts } = Astro.props;
+---
+
+<BaseLayout title={cat.name} description={cat.description}>
+  <section class="archive-header">
+    <p class="archive-kicker">Category</p>
+    <h1>{cat.name}</h1>
+    <p class="archive-description">{cat.description}</p>
+    <p class="archive-count">{posts.length}개의 글</p>
+  </section>
+  <PostList posts={posts} />
+</BaseLayout>

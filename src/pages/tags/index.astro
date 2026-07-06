@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostList from "../../components/PostList.astro";
+import { tagSlug, url } from "../../consts";
+import { getPublishedPosts, type Post } from "../../lib/posts";
+
+const posts = await getPublishedPosts();
+
+const tagMap = new Map<string, { name: string; posts: Post[] }>();
+for (const post of posts) {
+  for (const tag of post.data.tags) {
+    const slug = tagSlug(tag);
+    const entry = tagMap.get(slug) ?? { name: tag, posts: [] };
+    entry.posts.push(post);
+    tagMap.set(slug, entry);
+  }
+}
+const tags = [...tagMap.entries()].sort((a, b) => a[0].localeCompare(b[0], "ko"));
+---
+
+<BaseLayout title="Tags" description="태그별로 모아 보는 전체 글 목록">
+  <section class="archive-header">
+    <p class="archive-kicker">Index</p>
+    <h1>Tags</h1>
+    <p class="archive-count">{tags.length}개의 태그</p>
+  </section>
+
+  <div class="tag-cloud">
+    {
+      tags.map(([slug, { name, posts: tagPosts }]) => (
+        <a class="chip" href={url(`/tags/${slug}/`)}>
+          #{name}
+          <small>{tagPosts.length}</small>
+        </a>
+      ))
+    }
+  </div>
+
+  {
+    tags.map(([slug, { name, posts: tagPosts }]) => (
+      <section>
+        <h2 id={slug} class="post-card-title">
+          <a href={url(`/tags/${slug}/`)}>#{name}</a>
+        </h2>
+        <PostList posts={tagPosts} />
+      </section>
+    ))
+  }
+</BaseLayout>

@@ -1,0 +1,22 @@
+---
+import { SITE, url } from "../consts";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer-inner">
+    <p>&copy; {year} {SITE.author}</p>
+    <p class="footer-links">
+      {
+        SITE.social.github && (
+          <a href={`https://github.com/${SITE.social.github}`} rel="me">
+            GitHub
+          </a>
+        )
+      }
+      {SITE.social.email && <a href={`mailto:${SITE.social.email}`}>Email</a>}
+      <a href={url("/rss.xml")}>RSS</a>
+    </p>
+  </div>
+</footer>

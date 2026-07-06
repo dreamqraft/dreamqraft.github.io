@@ -1,0 +1,35 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PostList from "../../../components/PostList.astro";
+import { tagSlug } from "../../../consts";
+import { getPublishedPosts, type Post } from "../../../lib/posts";
+
+export const getStaticPaths = (async () => {
+  const posts = await getPublishedPosts();
+  const tagMap = new Map<string, { name: string; posts: Post[] }>();
+  for (const post of posts) {
+    for (const tag of post.data.tags) {
+      const slug = tagSlug(tag);
+      const entry = tagMap.get(slug) ?? { name: tag, posts: [] };
+      entry.posts.push(post);
+      tagMap.set(slug, entry);
+    }
+  }
+  return [...tagMap.entries()].map(([slug, { name, posts: tagPosts }]) => ({
+    params: { tag: slug },
+    props: { name, posts: tagPosts },
+  }));
+}) satisfies GetStaticPaths;
+
+const { name, posts } = Astro.props;
+---
+
+<BaseLayout title={`#${name}`} description={`'${name}' 태그가 달린 글 목록`}>
+  <section class="archive-header">
+    <p class="archive-kicker">Tag</p>
+    <h1>#{name}</h1>
+    <p class="archive-count">{posts.length}개의 글</p>
+  </section>
+  <PostList posts={posts} />
+</BaseLayout>

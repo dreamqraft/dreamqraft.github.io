@@ -1,0 +1,49 @@
+---
+import type { GetStaticPaths, Page } from "astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostList from "../components/PostList.astro";
+import { SITE, CATEGORIES, url } from "../consts";
+import { getPublishedPosts, type Post } from "../lib/posts";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getPublishedPosts();
+  return paginate(posts, { pageSize: SITE.postsPerPage });
+}) satisfies GetStaticPaths;
+
+interface Props {
+  page: Page<Post>;
+}
+
+const { page } = Astro.props;
+const withSlash = (u: string) => (u.endsWith("/") ? u : `${u}/`);
+---
+
+<BaseLayout title={SITE.title}>
+  <section class="hero">
+    <h1>{SITE.title}</h1>
+    <p class="hero-tagline">{SITE.description}</p>
+    <div class="category-chips">
+      {
+        CATEGORIES.map((cat) => (
+          <a class="chip" href={url(`/categories/${cat.slug}/`)}>
+            {cat.name}
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <PostList posts={page.data} />
+
+  {
+    page.lastPage > 1 && (
+      <nav class="pagination" aria-label="페이지 이동">
+        {page.url.prev ? <a href={withSlash(page.url.prev)}>&larr; 최신 글</a> : <span />}
+        <span class="pagination-info">
+          {page.currentPage} / {page.lastPage}
+        </span>
+        {page.url.next ? <a href={withSlash(page.url.next)}>이전 글 &rarr;</a> : <span />}
+      </nav>
+    )
+  }
+</BaseLayout>

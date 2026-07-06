@@ -1,0 +1,13 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { url } from "../consts";
+---
+
+<BaseLayout title="404 — 페이지를 찾을 수 없습니다">
+  <section class="archive-header" style="text-align: center; padding: 6rem 0;">
+    <p class="archive-kicker">404</p>
+    <h1>페이지를 찾을 수 없습니다</h1>
+    <p class="archive-description">주소가 바뀌었거나 삭제된 페이지입니다.</p>
+    <p style="margin-top: 1.5rem;"><a class="chip" href={url("/")}>&larr; 홈으로 돌아가기</a></p>
+  </section>
+</BaseLayout>

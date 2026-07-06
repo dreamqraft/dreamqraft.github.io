@@ -1,0 +1,89 @@
+---
+import { render } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import AdInArticle from "../../components/AdInArticle.astro";
+import { categoryInfo, formatDate, isoDate, readingMinutes, tagSlug, url } from "../../consts";
+import { getPublishedPosts, postPath } from "../../lib/posts";
+
+export const getStaticPaths = (async () => {
+  const posts = await getPublishedPosts();
+  return posts.map((post, i) => ({
+    params: { category: post.data.category, slug: post.id },
+    props: {
+      post,
+      // 목록이 최신순이므로 이전 글 = i+1, 다음 글 = i-1
+      prev: posts[i + 1] ?? null,
+      next: posts[i - 1] ?? null,
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post, prev, next } = Astro.props;
+const { Content } = await render(post);
+const cat = categoryInfo(post.data.category);
+const minutes = readingMinutes(post.body ?? "");
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  article={{
+    pubDate: post.data.pubDate,
+    updatedDate: post.data.updatedDate,
+    tags: post.data.tags,
+  }}
+>
+  <article class="post">
+    <header class="post-header">
+      <div class="post-meta">
+        <a class="post-card-category" href={url(`/categories/${post.data.category}/`)}>
+          {cat?.name ?? post.data.category}
+        </a>
+        <time datetime={isoDate(post.data.pubDate)}>{formatDate(post.data.pubDate)}</time>
+        <span>{minutes}분 소요</span>
+      </div>
+      <h1 class="post-title">{post.data.title}</h1>
+      <p class="post-description">{post.data.description}</p>
+    </header>
+
+    <div class="post-content">
+      <Content />
+    </div>
+
+    <AdInArticle />
+
+    {
+      post.data.tags.length > 0 && (
+        <footer class="post-tags">
+          {post.data.tags.map((tag) => (
+            <a class="chip" href={url(`/tags/${tagSlug(tag)}/`)}>
+              #{tag}
+            </a>
+          ))}
+        </footer>
+      )
+    }
+
+    <nav class="post-nav">
+      {
+        prev ? (
+          <a class="post-nav-item" href={postPath(prev)}>
+            <span class="post-nav-label">&larr; 이전 글</span>
+            <span class="post-nav-title">{prev.data.title}</span>
+          </a>
+        ) : (
+          <span />
+        )
+      }
+      {
+        next && (
+          <a class="post-nav-item post-nav-next" href={postPath(next)}>
+            <span class="post-nav-label">다음 글 &rarr;</span>
+            <span class="post-nav-title">{next.data.title}</span>
+          </a>
+        )
+      }
+    </nav>
+  </article>
+</BaseLayout>
