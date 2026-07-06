@@ -6,7 +6,24 @@ const path = Astro.url.pathname;
 
 <header class="site-header">
   <div class="container site-header-inner">
-    <a class="site-title" href={url("/")}>{SITE.title}</a>
+    <a class="site-title" href={url("/")}>
+      <svg
+        class="site-logo"
+        width="24"
+        height="24"
+        viewBox="0 0 1024 1024"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M 606.5 864.6 A 365 365 0 1 1 864.6 606.5"
+          stroke="currentColor"
+          stroke-width="62"
+          fill="none"></path>
+        <circle cx="770" cy="770" r="112" fill="currentColor"></circle>
+      </svg>
+      <span>{SITE.title}</span>
+    </a>
     <nav class="site-nav" aria-label="주요 메뉴">
       {
         CATEGORIES.map((cat) => (

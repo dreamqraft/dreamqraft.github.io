@@ -1,4 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#2563eb"/>
-  <text x="16" y="22" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">DQ</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none">
+  <style>
+    path { stroke: #111318; }
+    circle { fill: #111318; }
+    @media (prefers-color-scheme: dark) {
+      path { stroke: #ffffff; }
+      circle { fill: #ffffff; }
+    }
+  </style>
+  <path d="M 606.5 864.6 A 365 365 0 1 1 864.6 606.5" stroke-width="62" fill="none"/>
+  <circle cx="770" cy="770" r="112"/>
 </svg>
