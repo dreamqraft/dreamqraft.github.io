@@ -1,0 +1,66 @@
+---
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+// h2/h3만 목차에 포함. 헤딩이 2개 미만이면 목차를 표시하지 않습니다.
+const items = Astro.props.headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+{
+  items.length >= 2 && (
+    <>
+      {/* 좁은 화면: 본문 상단의 접이식 목차 */}
+      <details class="toc toc-inline" open>
+        <summary>목차</summary>
+        <ul>
+          {items.map((h) => (
+            <li class={`depth-${h.depth}`}>
+              <a href={`#${h.slug}`}>{h.text}</a>
+            </li>
+          ))}
+        </ul>
+      </details>
+
+      {/* 넓은 화면: 본문 옆에 고정되는 목차 (스크롤 위치 하이라이트) */}
+      <aside class="toc toc-aside" aria-label="목차">
+        <div class="toc-body">
+          <p class="toc-title">목차</p>
+          <ul>
+            {items.map((h) => (
+              <li class={`depth-${h.depth}`}>
+                <a href={`#${h.slug}`}>{h.text}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </aside>
+    </>
+  )
+}
+
+<script>
+  // 스크롤 위치에 따라 사이드 목차의 현재 섹션을 하이라이트
+  const aside = document.querySelector(".toc-aside");
+  if (aside) {
+    const links = [...aside.querySelectorAll("a")] as HTMLAnchorElement[];
+    const bySlug = new Map(links.map((l) => [decodeURIComponent(l.hash.slice(1)), l]));
+    const headings = [
+      ...document.querySelectorAll(".post-content h2[id], .post-content h3[id]"),
+    ];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            links.forEach((l) => l.classList.remove("active"));
+            bySlug.get(entry.target.id)?.classList.add("active");
+          }
+        }
+      },
+      { rootMargin: "-15% 0px -75% 0px" }
+    );
+    headings.forEach((h) => observer.observe(h));
+  }
+</script>

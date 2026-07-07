@@ -3,6 +3,7 @@ import { render } from "astro:content";
 import type { GetStaticPaths } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import AdInArticle from "../../components/AdInArticle.astro";
+import TableOfContents from "../../components/TableOfContents.astro";
 import { categoryInfo, formatDate, isoDate, readingMinutes, tagSlug, url } from "../../consts";
 import { getPublishedPosts, postPath } from "../../lib/posts";
 
@@ -20,7 +21,7 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { post, prev, next } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 const cat = categoryInfo(post.data.category);
 const minutes = readingMinutes(post.body ?? "");
 ---
@@ -46,6 +47,8 @@ const minutes = readingMinutes(post.body ?? "");
       <h1 class="post-title">{post.data.title}</h1>
       <p class="post-description">{post.data.description}</p>
     </header>
+
+    <TableOfContents headings={headings} />
 
     <div class="post-content">
       <Content />
