@@ -7,7 +7,12 @@ export default defineConfig({
   site: "https://dreamqraft.github.io",
   base: "/dreamqraft",
   trailingSlash: "always",
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // 비공개·도구 페이지는 사이트맵에서 제외
+      filter: (page) => !page.includes("/journal/") && !page.includes("/write/"),
+    }),
+  ],
   markdown: {
     shikiConfig: {
       themes: {

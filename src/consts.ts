@@ -40,6 +40,12 @@ export function categoryInfo(slug: string) {
   return CATEGORIES.find((c) => c.slug === slug);
 }
 
+// /write/ 페이지가 커밋 화면을 여는 데 사용하는 저장소 정보
+export const GITHUB = {
+  repo: "dreamqraft/dreamqraft",
+  branch: "main",
+} as const;
+
 // ---------------------------------------------------------------
 // Google AdSense — 승인 후 enabled를 true로 바꾸고 client ID 입력
 // ---------------------------------------------------------------

@@ -37,13 +37,14 @@ const path = Astro.url.pathname;
       }
       <a href={url("/tags/")} class:list={{ active: path.endsWith("/tags/") }}>Tags</a>
       <a href={url("/about/")} class:list={{ active: path.endsWith("/about/") }}>About</a>
+      {/* 비공개 저널(/journal/)과 글쓰기(/write/)는 메뉴에 노출하지 않고 URL로 직접 접근 */}
       <a
         href={url("/search/")}
         class:list={["nav-search", { active: path.endsWith("/search/") }]}
         aria-label="검색"
         title="검색"
       >
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
         <span>Search</span>
       </a>
       <button id="theme-toggle" type="button" aria-label="다크 모드 전환" title="다크 모드 전환">

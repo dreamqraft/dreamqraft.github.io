@@ -8,6 +8,7 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description?: string;
+  noindex?: boolean;
   article?: {
     pubDate: Date;
     updatedDate?: Date | undefined;
@@ -15,13 +16,13 @@ interface Props {
   };
 }
 
-const { title, description, article } = Astro.props;
+const { title, description, article, noindex } = Astro.props;
 ---
 
 <!doctype html>
 <html lang={SITE.lang}>
   <head>
-    <BaseHead title={title} description={description} article={article} />
+    <BaseHead title={title} description={description} article={article} noindex={noindex} />
   </head>
   <body>
     <Header />

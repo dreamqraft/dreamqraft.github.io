@@ -4,6 +4,8 @@ import { SITE, ADSENSE, url } from "../consts";
 interface Props {
   title: string;
   description?: string;
+  /** 검색엔진 색인 제외 (journal, write 등 비공개 성격의 페이지) */
+  noindex?: boolean;
   /** 글 페이지에서만 전달 — article 메타와 JSON-LD를 생성 */
   article?: {
     pubDate: Date;
@@ -12,7 +14,7 @@ interface Props {
   };
 }
 
-const { title, description = SITE.description, article } = Astro.props;
+const { title, description = SITE.description, article, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const fullTitle = title === SITE.title ? title : `${title} | ${SITE.title}`;
 
@@ -42,6 +44,7 @@ const jsonLd = article
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
 <meta name="author" content={SITE.author} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
 <link rel="canonical" href={canonical} />
 <link rel="icon" href={url("/favicon.svg")} type="image/svg+xml" />
 <link rel="sitemap" href={url("/sitemap-index.xml")} />
