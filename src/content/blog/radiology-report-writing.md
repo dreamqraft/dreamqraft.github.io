@@ -2,7 +2,7 @@
 title: "읽히는 판독문을 위한 다섯 가지 습관"
 description: "판독문은 문학이 아니라 의사결정 도구 — 전달력을 높이는 작성 원칙."
 pubDate: 2026-04-20
-category: radiology
+category: life
 tags: [판독문, 커뮤니케이션, 판독노트]
 ---
 

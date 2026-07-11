@@ -2,7 +2,7 @@
 title: "혼자 쓰는 저장소에도 브랜치가 필요한 이유"
 description: "1인 프로젝트를 위한 최소한의 git 워크플로를 정리합니다."
 pubDate: 2026-06-19
-category: development
+category: life
 tags: [git, 워크플로, 습관]
 ---
 

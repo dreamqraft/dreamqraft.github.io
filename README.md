@@ -1,6 +1,6 @@
 # DreamQraft Blog
 
-GitHub Pages + [Astro](https://astro.build) 기반 블로그입니다. Investment · Development · Radiology를 주제로 합니다.
+GitHub Pages + [Astro](https://astro.build) 기반 블로그입니다. 카테고리는 Investment(투자) · Life(그 외 기록) · English(영어 번역 글)입니다.
 
 - **배포 주소**: https://dreamqraft.github.io/dreamqraft/
 - **배포 방식**: `main` 브랜치에 push하면 GitHub Actions가 자동으로 빌드·배포 (`.github/workflows/deploy.yml`)
@@ -24,7 +24,7 @@ GitHub Pages + [Astro](https://astro.build) 기반 블로그입니다. Investmen
 title: "글 제목"
 description: "검색 결과·목록에 표시될 한 줄 요약 (SEO에 중요)"
 pubDate: 2026-07-06
-category: investment        # investment | development | radiology 중 하나
+category: investment        # investment | life | english 중 하나
 tags: [ETF, 자산배분]        # 자유롭게, 여러 개 가능
 draft: false                # true면 발행 안 됨 (초안)
 ---

@@ -2,7 +2,7 @@
 title: "두부 비조영 CT의 체계적 판독 순서"
 description: "Blood Can Be Very Bad — 응급 두부 CT에서 놓치지 않기 위한 순서."
 pubDate: 2026-06-08
-category: radiology
+category: life
 tags: [brain, ct, 판독노트, 응급]
 ---
 

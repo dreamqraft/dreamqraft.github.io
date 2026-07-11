@@ -2,7 +2,7 @@
 title: "사이드 프로젝트에 Docker를 쓰는 최소한의 이유"
 description: "복잡한 오케스트레이션 없이, 재현 가능한 실행 환경 하나만 얻기."
 pubDate: 2026-05-13
-category: development
+category: life
 tags: [docker, 인프라, 개발환경]
 ---
 

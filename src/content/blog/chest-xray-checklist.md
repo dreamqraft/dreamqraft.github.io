@@ -2,7 +2,7 @@
 title: "흉부 X선 판독 순서 정리"
 description: "놓치기 쉬운 영역까지 훑는 체계적인 흉부 단순촬영 판독 루틴."
 pubDate: 2026-07-04
-category: radiology
+category: life
 tags: [chest, x-ray, 판독노트]
 ---
 

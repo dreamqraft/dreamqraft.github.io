@@ -2,7 +2,7 @@
 title: "TypeScript strict 모드, 처음부터 켜는 게 싸다"
 description: "strict를 나중에 켜려다 고생한 뒤 내린 결론."
 pubDate: 2026-04-22
-category: development
+category: life
 tags: [typescript, 코드품질, 공부노트]
 ---
 

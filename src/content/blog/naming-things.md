@@ -2,7 +2,7 @@
 title: "이름 짓기가 어려울 때 쓰는 세 가지 질문"
 description: "변수명이 안 떠오르는 건 어휘력 문제가 아니라 설계 신호일 때가 많습니다."
 pubDate: 2026-04-03
-category: development
+category: life
 tags: [코드품질, 네이밍, 습관]
 ---
 

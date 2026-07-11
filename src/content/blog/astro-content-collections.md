@@ -2,7 +2,7 @@
 title: "Astro 콘텐츠 컬렉션으로 블로그 글 관리하기"
 description: "frontmatter를 스키마로 검증하면 오타가 빌드 에러로 잡힙니다."
 pubDate: 2026-06-28
-category: development
+category: life
 tags: [astro, typescript, blog]
 ---
 

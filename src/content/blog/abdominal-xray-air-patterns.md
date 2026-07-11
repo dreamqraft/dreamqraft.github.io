@@ -2,7 +2,7 @@
 title: "복부 단순촬영에서 가스 패턴 읽기"
 description: "정상 가스 분포와 장폐색·유리 공기를 시사하는 패턴 구분하기."
 pubDate: 2026-06-26
-category: radiology
+category: life
 tags: [abdomen, x-ray, 판독노트]
 ---
 

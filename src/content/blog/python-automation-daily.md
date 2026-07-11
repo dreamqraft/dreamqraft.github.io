@@ -2,7 +2,7 @@
 title: "반복 작업을 파이썬 스크립트로 바꾸는 기준"
 description: "자동화할 가치가 있는 일과 그냥 손으로 하는 게 나은 일을 구분하는 법."
 pubDate: 2026-06-01
-category: development
+category: life
 tags: [python, 자동화, 생산성]
 ---
 

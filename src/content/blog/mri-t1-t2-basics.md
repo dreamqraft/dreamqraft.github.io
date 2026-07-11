@@ -2,7 +2,7 @@
 title: "MRI 기초: T1과 T2를 구분하는 가장 쉬운 방법"
 description: "물과 지방의 신호를 기준으로 시퀀스를 읽는 출발점 만들기."
 pubDate: 2026-05-29
-category: radiology
+category: life
 tags: [mri, 기초, 공부노트]
 ---
 

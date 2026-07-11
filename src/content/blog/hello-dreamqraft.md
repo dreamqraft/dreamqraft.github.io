@@ -1,18 +1,18 @@
 ---
 title: "블로그를 시작하며"
-description: "투자, 개발, 영상의학을 기록하는 공간을 엽니다."
+description: "투자와 삶을 기록하는 공간을 엽니다."
 pubDate: 2026-07-06
-category: development
+category: life
 tags: [blog, astro, github-pages]
 ---
 
-GitHub Pages 위에 Astro로 블로그를 열었습니다. 앞으로 세 가지 주제를 중심으로 기록할 예정입니다.
+GitHub Pages 위에 Astro로 블로그를 열었습니다. 앞으로 이런 주제들을 기록할 예정입니다.
 
 ## 다루는 주제
 
 - **Investment** — 투자 원칙과 자산 배분에 대한 생각
-- **Development** — 개발하면서 배운 것들
-- **Radiology** — 영상의학 공부 노트
+- **Life** — 공부, 개발, 일상 등 투자 밖의 모든 기록
+- **English** — 그중 일부를 영어로 옮긴 글
 
 ## 글 작성 방법
 

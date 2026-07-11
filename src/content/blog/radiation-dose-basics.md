@@ -2,7 +2,7 @@
 title: "방사선량 개념 정리: mSv로 감 잡기"
 description: "검사별 대략적인 유효선량과 ALARA 원칙을 환자 설명 관점에서 정리."
 pubDate: 2026-04-02
-category: radiology
+category: life
 tags: [radiation, 환자안전, 공부노트]
 ---
 

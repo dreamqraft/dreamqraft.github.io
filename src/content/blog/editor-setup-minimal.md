@@ -2,7 +2,7 @@
 title: "에디터 세팅, 확장 프로그램 10개에서 4개로"
 description: "쓰지 않는 확장을 걷어내고 남긴 것들과 그 이유."
 pubDate: 2026-05-22
-category: development
+category: life
 tags: [vscode, 도구, 생산성]
 ---
 

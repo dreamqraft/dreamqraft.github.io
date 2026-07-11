@@ -2,7 +2,7 @@
 title: "소아 팔꿈치의 골화중심: CRITOE 순서"
 description: "골절인가 정상 골화중심인가 — 소아 팔꿈치 판독의 기본기."
 pubDate: 2026-04-30
-category: radiology
+category: life
 tags: [pediatric, msk, x-ray, 판독노트]
 ---
 

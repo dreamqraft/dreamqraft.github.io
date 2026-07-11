@@ -2,7 +2,7 @@
 title: "dotfiles를 git으로 관리하기 시작했다"
 description: "새 컴퓨터 세팅을 30분으로 줄여준 설정 파일 저장소."
 pubDate: 2026-06-10
-category: development
+category: life
 tags: [dotfiles, git, 생산성]
 ---
 

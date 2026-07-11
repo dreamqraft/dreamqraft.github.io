@@ -4,7 +4,7 @@
 
 export const SITE = {
   title: "DreamQraft",
-  description: "투자, 개발, 영상의학에 대한 기록과 생각을 정리하는 블로그입니다.",
+  description: "투자와 삶에 대한 기록과 생각을 정리하는 블로그입니다.",
   author: "DreamQraft",
   lang: "ko",
   postsPerPage: 8,
@@ -23,14 +23,14 @@ export const CATEGORIES = [
     description: "투자 원칙, 자산 배분, 시장에 대한 기록",
   },
   {
-    slug: "development",
-    name: "Development",
-    description: "개발, 도구, 자동화에 대한 기록",
+    slug: "life",
+    name: "Life",
+    description: "공부, 개발, 일상 — 투자 밖의 모든 기록",
   },
   {
-    slug: "radiology",
-    name: "Radiology",
-    description: "영상의학 공부와 판독 노트",
+    slug: "english",
+    name: "English",
+    description: "Selected posts translated into English — 영어로 옮긴 글",
   },
 ] as const;
 

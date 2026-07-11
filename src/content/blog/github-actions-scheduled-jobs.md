@@ -2,7 +2,7 @@
 title: "GitHub Actions로 매일 도는 작업 만들기"
 description: "서버 없이 스케줄 작업을 돌리는 가장 저렴한 방법."
 pubDate: 2026-04-12
-category: development
+category: life
 tags: [github-actions, 자동화, ci]
 ---
 

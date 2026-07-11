@@ -2,7 +2,7 @@
 title: "CT 조영 시기별로 무엇을 보는가"
 description: "동맥기·문맥기·지연기 — 각 시기의 목적을 표로 정리했습니다."
 pubDate: 2026-06-17
-category: radiology
+category: life
 tags: [ct, contrast, 판독노트]
 ---
 

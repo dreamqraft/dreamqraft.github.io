@@ -2,7 +2,7 @@
 title: "골절을 기술하는 여섯 가지 요소"
 description: "\"어디가 부러졌다\"를 넘어서 — 임상의에게 필요한 정보 순서대로 말하기."
 pubDate: 2026-05-11
-category: radiology
+category: life
 tags: [msk, x-ray, 판독노트]
 ---
 
