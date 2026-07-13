@@ -58,10 +58,8 @@ const path = Astro.url.pathname;
 <script is:inline>
   document.getElementById("theme-toggle")?.addEventListener("click", function () {
     var root = document.documentElement;
-    var current = root.getAttribute("data-theme");
-    if (!current) {
-      current = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
+    // 저장된 선택이 없으면 기본 테마는 다크
+    var current = root.getAttribute("data-theme") || "dark";
     var next = current === "dark" ? "light" : "dark";
     root.setAttribute("data-theme", next);
     localStorage.setItem("theme", next);

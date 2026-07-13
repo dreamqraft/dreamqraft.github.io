@@ -2,32 +2,8 @@
    DreamQraft — minimal modern theme
    ========================================================== */
 
+/* 기본 테마: 다크. 토글로 라이트를 선택하면 data-theme="light"가 적용됩니다. */
 :root {
-  --bg: #ffffff;
-  --bg-subtle: #f6f7f9;
-  --text: #1b1f24;
-  --text-muted: #667085;
-  --border: #e7eaee;
-  --accent: #2563eb;
-  --accent-soft: #eff4ff;
-  --code-bg: #f4f5f7;
-  --max-width: 44rem;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #101318;
-    --bg-subtle: #171b22;
-    --text: #e6e9ee;
-    --text-muted: #98a2b3;
-    --border: #262c36;
-    --accent: #7aa2ff;
-    --accent-soft: #1b2233;
-    --code-bg: #171b22;
-  }
-}
-
-:root[data-theme="dark"] {
   --bg: #101318;
   --bg-subtle: #171b22;
   --text: #e6e9ee;
@@ -36,6 +12,20 @@
   --accent: #7aa2ff;
   --accent-soft: #1b2233;
   --code-bg: #171b22;
+  --max-width: 44rem;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-subtle: #f6f7f9;
+  --text: #1b1f24;
+  --text-muted: #667085;
+  --border: #e7eaee;
+  --accent: #2563eb;
+  --accent-soft: #eff4ff;
+  --code-bg: #f4f5f7;
+  color-scheme: light;
 }
 
 * {
@@ -174,19 +164,15 @@ a:hover {
   color: var(--text);
   border-color: var(--text-muted);
 }
-:root[data-theme="dark"] .icon-moon {
+/* 기본(다크)에서는 해 아이콘(라이트로 전환), 라이트에서는 달 아이콘 표시 */
+.icon-moon {
   display: none;
 }
-:root:not([data-theme="dark"]) .icon-sun {
-  display: none;
+:root[data-theme="light"] .icon-moon {
+  display: inline;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]):not([data-theme="dark"]) .icon-sun {
-    display: inline;
-  }
-  :root:not([data-theme="light"]):not([data-theme="dark"]) .icon-moon {
-    display: none;
-  }
+:root[data-theme="light"] .icon-sun {
+  display: none;
 }
 
 /* ---------- hero ---------- */
@@ -609,18 +595,11 @@ mark {
   font-size: 0.85rem;
 }
 
-/* Shiki 코드 블록 다크 모드 전환 */
-:root[data-theme="dark"] .astro-code,
-:root[data-theme="dark"] .astro-code span {
+/* Shiki 코드 블록 — 기본(다크)에서는 다크 팔레트, 라이트 선택 시 인라인(라이트) 색 사용 */
+:root:not([data-theme="light"]) .astro-code,
+:root:not([data-theme="light"]) .astro-code span {
   color: var(--shiki-dark) !important;
   background-color: var(--shiki-dark-bg) !important;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .astro-code,
-  :root:not([data-theme="light"]) .astro-code span {
-    color: var(--shiki-dark) !important;
-    background-color: var(--shiki-dark-bg) !important;
-  }
 }
 
 .post-content table {
