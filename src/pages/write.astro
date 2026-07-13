@@ -19,10 +19,9 @@ const github = GITHUB;
   <form id="write-form" class="write-form">
     <div class="field-row">
       <label class="field">
-        <span>종류</span>
-        <select id="w-type">
-          <option value="blog">블로그 글 (공개)</option>
-          <option value="journal">투자 저널 (비공개)</option>
+        <span>카테고리</span>
+        <select id="w-category">
+          {categories.map((c) => <option value={c.slug}>{c.name}</option>)}
         </select>
       </label>
       <label class="field">
@@ -36,29 +35,21 @@ const github = GITHUB;
       <input id="w-title" type="text" placeholder="글 제목" required />
     </label>
 
-    <div id="blog-only">
-      <label class="field">
-        <span>요약 (description) — 검색 결과와 목록에 표시됩니다</span>
-        <input id="w-description" type="text" placeholder="한 줄 요약" />
-      </label>
-      <div class="field-row">
-        <label class="field">
-          <span>카테고리</span>
-          <select id="w-category">
-            {categories.map((c) => <option value={c.slug}>{c.name}</option>)}
-          </select>
-        </label>
-        <label class="field">
-          <span>슬러그 (URL, 영문 권장)</span>
-          <input id="w-slug" type="text" placeholder="my-post-slug" pattern="[a-z0-9\-]*" />
-        </label>
-      </div>
-    </div>
-
     <label class="field">
-      <span>태그 (쉼표로 구분)</span>
-      <input id="w-tags" type="text" placeholder="ETF, 자산배분" />
+      <span>요약 (description) — 검색 결과와 목록에 표시됩니다</span>
+      <input id="w-description" type="text" placeholder="한 줄 요약" />
     </label>
+
+    <div class="field-row">
+      <label class="field">
+        <span>슬러그 (URL, 영문 권장)</span>
+        <input id="w-slug" type="text" placeholder="my-post-slug" pattern="[a-z0-9\-]*" />
+      </label>
+      <label class="field">
+        <span>태그 (쉼표로 구분)</span>
+        <input id="w-tags" type="text" placeholder="ETF, 자산배분" />
+      </label>
+    </div>
 
     <label class="field">
       <span>본문 (마크다운)</span>
@@ -84,70 +75,17 @@ const github = GITHUB;
 
 <script is:inline define:vars={{ github }}>
   const $ = (id) => document.getElementById(id);
-  const typeEl = $("w-type");
-  const blogOnly = $("blog-only");
 
   // 오늘 날짜 기본값
   $("w-date").value = new Date().toISOString().split("T")[0];
 
-  // URL로 종류 선택: /write/?type=journal
-  const preset = new URLSearchParams(location.search).get("type");
-  if (preset === "journal") typeEl.value = "journal";
-
-  // 투자 저널 기본 템플릿 — 저널을 선택하면 빈 본문에 자동으로 채워집니다.
-  const JOURNAL_TEMPLATE = [
-    "## 시장 메모",
-    "",
-    "- ",
-    "",
-    "## 매매 기록 (없으면 삭제)",
-    "",
-    "| 항목 | 내용 |",
-    "|------|------|",
-    "| 무엇을 | |",
-    "| 왜 지금 | |",
-    "| 언제 파는가 (논리가 깨지는 조건) | |",
-    "| 틀렸다는 신호 | |",
-    "| 포트폴리오 내 역할 | |",
-    "",
-    "## 포트폴리오 현황",
-    "",
-    "- 주식 : 채권 : 현금 =  :  : ",
-    "- 목표 대비 편차: ",
-    "",
-    "## 감정 상태",
-    "",
-    "- 지금 사고 싶은/팔고 싶은 충동이 있는가? 근거는 규칙인가 뉴스인가?",
-    "",
-    "## 다음 액션",
-    "",
-    "- ",
-  ].join("\n");
-
-  const bodyEl = $("w-body");
-  function syncType() {
-    const isJournal = typeEl.value === "journal";
-    blogOnly.style.display = isJournal ? "none" : "";
-    if (isJournal && !bodyEl.value.trim()) {
-      bodyEl.value = JOURNAL_TEMPLATE;
-    } else if (!isJournal && bodyEl.value === JOURNAL_TEMPLATE) {
-      bodyEl.value = "";
-    }
-  }
-  typeEl.addEventListener("change", () => {
-    syncType();
-    updatePreview();
-  });
-  syncType();
-
   function autoSlug(title) {
-    const s = title
+    return title
       .toLowerCase()
       .replace(/[^a-z0-9\s-]/g, "")
       .trim()
       .replace(/\s+/g, "-")
       .replace(/-+/g, "-");
-    return s;
   }
   $("w-title").addEventListener("input", () => {
     if (!$("w-slug").dataset.touched) $("w-slug").value = autoSlug($("w-title").value);
@@ -155,45 +93,26 @@ const github = GITHUB;
   $("w-slug").addEventListener("input", () => ($("w-slug").dataset.touched = "1"));
 
   function buildFile() {
-    const type = typeEl.value;
     const title = $("w-title").value.trim();
     const date = $("w-date").value;
     const tags = $("w-tags")
       .value.split(",")
       .map((t) => t.trim())
       .filter(Boolean);
-    const tagsYaml = `[${tags.join(", ")}]`;
     const body = $("w-body").value.trim();
     const esc = (s) => s.replace(/"/g, '\\"');
 
-    let frontmatter;
-    let filename;
-    if (type === "blog") {
-      const description = $("w-description").value.trim();
-      const category = $("w-category").value;
-      const slug = $("w-slug").value.trim() || date;
-      frontmatter = [
-        "---",
-        `title: "${esc(title)}"`,
-        `description: "${esc(description)}"`,
-        `pubDate: ${date}`,
-        `category: ${category}`,
-        `tags: ${tagsYaml}`,
-        "---",
-      ].join("\n");
-      filename = `src/content/blog/${slug}.md`;
-    } else {
-      const slug = `${date}-${autoSlug(title) || "entry"}`;
-      frontmatter = [
-        "---",
-        `title: "${esc(title)}"`,
-        `pubDate: ${date}`,
-        `tags: ${tagsYaml}`,
-        "---",
-      ].join("\n");
-      filename = `src/content/journal/${slug}.md`;
-    }
-    return { filename, content: `${frontmatter}\n\n${body}\n` };
+    const frontmatter = [
+      "---",
+      `title: "${esc(title)}"`,
+      `description: "${esc($("w-description").value.trim())}"`,
+      `pubDate: ${date}`,
+      `category: ${$("w-category").value}`,
+      `tags: [${tags.join(", ")}]`,
+      "---",
+    ].join("\n");
+    const slug = $("w-slug").value.trim() || date;
+    return { filename: `src/content/blog/${slug}.md`, content: `${frontmatter}\n\n${body}\n` };
   }
 
   function updatePreview() {

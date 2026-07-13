@@ -11,8 +11,8 @@ export default defineConfig({
   trailingSlash: "always",
   integrations: [
     sitemap({
-      // 비공개·도구 페이지는 사이트맵에서 제외
-      filter: (page) => !page.includes("/journal/") && !page.includes("/write/"),
+      // 도구 페이지는 사이트맵에서 제외
+      filter: (page) => !page.includes("/write/"),
     }),
   ],
   markdown: {

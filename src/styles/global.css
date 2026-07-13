@@ -365,53 +365,6 @@ mark {
   padding: 0 0.1em;
 }
 
-/* ---------- journal ---------- */
-.notice-box {
-  padding: 1rem 1.25rem;
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  border-radius: 10px;
-  background: var(--bg-subtle);
-  font-size: 0.95rem;
-}
-.notice-box p {
-  margin: 0.4rem 0;
-}
-
-.unlock-form .search-box button {
-  border: none;
-  background: var(--accent);
-  color: #fff;
-  cursor: pointer;
-  font-size: 0.85rem;
-}
-
-.journal-toolbar {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-.journal-toolbar[hidden] {
-  display: none;
-}
-.journal-toolbar button {
-  cursor: pointer;
-  font: inherit;
-  font-size: 0.85rem;
-}
-
-.journal-entry {
-  padding: 1.75rem 0;
-  border-top: 1px solid var(--border);
-}
-.journal-entry:first-child {
-  border-top: none;
-}
-.journal-entry .post-content {
-  font-size: 0.98rem;
-}
-
 /* ---------- write ---------- */
 .write-form {
   display: flex;

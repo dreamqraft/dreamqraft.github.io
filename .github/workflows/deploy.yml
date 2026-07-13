@@ -29,8 +29,6 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-        env:
-          JOURNAL_PASSWORD: ${{ secrets.JOURNAL_PASSWORD }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -37,7 +37,7 @@ const path = Astro.url.pathname;
       }
       <a href={url("/tags/")} class:list={{ active: path.endsWith("/tags/") }}>Tags</a>
       <a href={url("/about/")} class:list={{ active: path.endsWith("/about/") }}>About</a>
-      {/* 비공개 저널(/journal/)과 글쓰기(/write/)는 메뉴에 노출하지 않고 URL로 직접 접근 */}
+      {/* 글쓰기(/write/)는 메뉴에 노출하지 않고 URL로 직접 접근 */}
       <a
         href={url("/search/")}
         class:list={["nav-search", { active: path.endsWith("/search/") }]}

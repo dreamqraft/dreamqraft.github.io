@@ -4,7 +4,7 @@ import { SITE, ADSENSE, url } from "../consts";
 interface Props {
   title: string;
   description?: string;
-  /** 검색엔진 색인 제외 (journal, write 등 비공개 성격의 페이지) */
+  /** 검색엔진 색인 제외 (write 등 도구 성격의 페이지) */
   noindex?: boolean;
   /** 글 페이지에서만 전달 — article 메타와 JSON-LD를 생성 */
   article?: {
