@@ -11,11 +11,11 @@ export const SITE = {
   // 저작권 표기 — since는 블로그 시작 연도 (현재 연도까지 자동 표기)
   copyright: {
     since: 2026,
-    notice: "무단 전재 및 재배포 금지.",
+    notice: "Unauthorized reproduction or redistribution is prohibited.",
   },
   // 투자 관련 컴플라이언스 고지 (푸터에 표시)
   disclaimer:
-    "본 블로그의 모든 내용은 개인적인 기록과 의견이며, 특정 금융상품의 매수·매도를 권유하는 것이 아닙니다. 투자에 대한 판단과 책임은 투자자 본인에게 있습니다.",
+    "All content on this blog is personal opinion and record-keeping, and does not constitute investment advice or a solicitation to buy or sell any financial product. Investment decisions are solely your own responsibility.",
   // 복사방지 — 본문 선택·복사·우클릭 차단 (코드 블록과 입력창은 예외). false로 끌 수 있음
   copyProtection: true,
   social: {
