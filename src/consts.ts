@@ -20,7 +20,6 @@ export const SITE = {
   copyProtection: true,
   social: {
     github: "dreamqraft",
-    email: "dreamqraft@gmail.com",
   },
 } as const;
 
