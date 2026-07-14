@@ -22,6 +22,9 @@ const range = year > since ? `${since}–${year}` : `${since}`;
         <a href={url("/rss.xml")}>RSS</a>
       </p>
     </div>
-    <p class="footer-notice">{SITE.copyright.notice}</p>
+    <p class="footer-notice">
+      {SITE.copyright.notice}
+      {SITE.disclaimer && <span class="footer-disclaimer">{SITE.disclaimer}</span>}
+    </p>
   </div>
 </footer>

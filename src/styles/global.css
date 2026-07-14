@@ -728,6 +728,10 @@ mark {
   color: var(--text-muted);
   opacity: 0.75;
 }
+.footer-disclaimer {
+  display: block;
+  margin-top: 0.2rem;
+}
 
 /* ---------- copy protection ---------- */
 body.no-copy {
