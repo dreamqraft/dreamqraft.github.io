@@ -2,21 +2,26 @@
 import { SITE, url } from "../consts";
 
 const year = new Date().getFullYear();
+const since = SITE.copyright.since;
+const range = year > since ? `${since}–${year}` : `${since}`;
 ---
 
 <footer class="site-footer">
-  <div class="container site-footer-inner">
-    <p>&copy; {year} {SITE.author}</p>
-    <p class="footer-links">
-      {
-        SITE.social.github && (
-          <a href={`https://github.com/${SITE.social.github}`} rel="me">
-            GitHub
-          </a>
-        )
-      }
-      {SITE.social.email && <a href={`mailto:${SITE.social.email}`}>Email</a>}
-      <a href={url("/rss.xml")}>RSS</a>
-    </p>
+  <div class="container">
+    <div class="site-footer-inner">
+      <p>&copy; {range} {SITE.author}. All rights reserved.</p>
+      <p class="footer-links">
+        {
+          SITE.social.github && (
+            <a href={`https://github.com/${SITE.social.github}`} rel="me">
+              GitHub
+            </a>
+          )
+        }
+        {SITE.social.email && <a href={`mailto:${SITE.social.email}`}>Email</a>}
+        <a href={url("/rss.xml")}>RSS</a>
+      </p>
+    </div>
+    <p class="footer-notice">{SITE.copyright.notice}</p>
   </div>
 </footer>

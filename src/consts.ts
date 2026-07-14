@@ -8,6 +8,14 @@ export const SITE = {
   author: "DreamQraft",
   lang: "ko",
   postsPerPage: 8,
+  // 저작권 표기 — since는 블로그 시작 연도 (현재 연도까지 자동 표기)
+  copyright: {
+    since: 2026,
+    notice:
+      "이 블로그의 모든 글과 이미지는 저작권법의 보호를 받습니다. 사전 동의 없는 무단 전재·복제·재배포를 금하며, 인용 시 출처(링크)를 밝혀주세요.",
+  },
+  // 복사방지 — 본문 선택·복사·우클릭 차단 (코드 블록과 입력창은 예외). false로 끌 수 있음
+  copyProtection: true,
   social: {
     github: "dreamqraft",
     email: "dreamqraft@gmail.com",

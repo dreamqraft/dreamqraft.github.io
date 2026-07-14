@@ -24,11 +24,37 @@ const { title, description, article, noindex } = Astro.props;
   <head>
     <BaseHead title={title} description={description} article={article} noindex={noindex} />
   </head>
-  <body>
+  <body class:list={{ "no-copy": SITE.copyProtection }}>
     <Header />
     <main class="container">
       <slot />
     </main>
     <Footer />
+    {
+      SITE.copyProtection && (
+        <script
+          is:inline
+          set:html={`
+          // 복사방지: 우클릭·복사 차단 (코드 블록과 입력 요소는 예외)
+          (function () {
+            var allowed = "pre, code, input, textarea";
+            document.addEventListener("contextmenu", function (e) {
+              if (!(e.target instanceof Element) || !e.target.closest(allowed)) e.preventDefault();
+            });
+            document.addEventListener("copy", function (e) {
+              var sel = document.getSelection();
+              var node = sel && sel.anchorNode;
+              var el = node && (node.nodeType === 1 ? node : node.parentElement);
+              var inAllowed = (el && el.closest(allowed)) || (e.target instanceof Element && e.target.closest(allowed));
+              if (!inAllowed) e.preventDefault();
+            });
+            document.addEventListener("dragstart", function (e) {
+              if (e.target instanceof HTMLImageElement) e.preventDefault();
+            });
+          })();
+          `}
+        />
+      )
+    }
   </body>
 </html>

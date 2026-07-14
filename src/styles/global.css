@@ -716,9 +716,35 @@ mark {
   flex-wrap: wrap;
   gap: 0.5rem;
   padding-top: 1.5rem;
-  padding-bottom: 2rem;
   font-size: 0.85rem;
   color: var(--text-muted);
+}
+
+.footer-notice {
+  margin: 0.5rem 0 0;
+  padding-bottom: 2rem;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  opacity: 0.75;
+}
+
+/* ---------- copy protection ---------- */
+body.no-copy {
+  -webkit-user-select: none;
+  user-select: none;
+}
+/* 코드 블록과 입력 요소는 선택·복사 허용 */
+body.no-copy pre,
+body.no-copy code,
+body.no-copy input,
+body.no-copy textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
+body.no-copy img {
+  -webkit-user-drag: none;
+  user-drag: none;
 }
 .site-footer p {
   margin: 0;
