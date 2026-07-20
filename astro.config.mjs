@@ -4,10 +4,9 @@ import sitemap from "@astrojs/sitemap";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 
-// 저장소를 dreamqraft.github.io로 바꾸면 base를 "/"로 수정하세요.
 export default defineConfig({
   site: "https://dreamqraft.github.io",
-  base: "/dreamqraft",
+  base: "/",
   trailingSlash: "always",
   integrations: [
     sitemap({

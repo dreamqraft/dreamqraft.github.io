@@ -51,7 +51,7 @@ export function categoryInfo(slug: string) {
 
 // /write/ 페이지가 커밋 화면을 여는 데 사용하는 저장소 정보
 export const GITHUB = {
-  repo: "dreamqraft/dreamqraft",
+  repo: "dreamqraft/dreamqraft.github.io",
   branch: "main",
 } as const;
 
