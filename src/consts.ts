@@ -59,8 +59,8 @@ export const GITHUB = {
 // Google AdSense — 승인 후 enabled를 true로 바꾸고 client ID 입력
 // ---------------------------------------------------------------
 export const ADSENSE = {
-  enabled: false,
-  client: "", // 예: "ca-pub-1234567890123456"
+  enabled: true,
+  client: "ca-pub-8656077149020478",
 } as const;
 
 // base 경로를 붙여 내부 링크를 만드는 헬퍼 (base가 바뀌어도 안전)
