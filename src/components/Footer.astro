@@ -1,5 +1,5 @@
 ---
-import { SITE, url } from "../consts";
+import { SITE } from "../consts";
 
 const year = new Date().getFullYear();
 const since = SITE.copyright.since;
@@ -18,7 +18,6 @@ const range = year > since ? `${since}–${year}` : `${since}`;
             </a>
           )
         }
-        <a href={url("/rss.xml")}>RSS</a>
       </p>
     </div>
     <p class="footer-notice">
