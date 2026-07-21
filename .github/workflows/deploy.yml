@@ -2,9 +2,7 @@ name: Deploy Astro site to Pages
 
 on:
   push:
-    # NOTE: claude/* 브랜치는 임시 트리거입니다 — 저장소 기본 브랜치를 main으로
-    # 변경한 뒤에는 "main"만 남기고 제거하세요.
-    branches: ["main", "claude/github-pages-blog-qhqe13"]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
