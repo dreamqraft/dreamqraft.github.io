@@ -3,7 +3,6 @@ title: "블로그를 시작하며"
 description: "투자와 삶을 기록하는 공간을 엽니다."
 pubDate: 2026-07-06
 category: life
-tags: [blog, astro, github-pages]
 ---
 
 GitHub Pages 위에 Astro로 블로그를 열었습니다. 앞으로 이런 주제들을 기록할 예정입니다.
@@ -24,7 +23,6 @@ title: "글 제목"
 description: "검색 결과에 표시될 한 줄 요약"
 pubDate: 2026-07-06
 category: investment
-tags: [ETF, 자산배분]
 ---
 
 본문을 마크다운으로 작성합니다.

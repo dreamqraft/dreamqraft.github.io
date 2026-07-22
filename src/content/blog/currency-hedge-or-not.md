@@ -3,7 +3,6 @@ title: "해외 ETF, 환헤지를 할 것인가"
 description: "환헤지형과 환노출형 사이에서 고민한 과정과 내가 정한 기준."
 pubDate: 2026-04-16
 category: investment
-tags: [환율, ETF, 자산배분]
 ---
 
 *이 글은 개인적인 기록이며 투자 권유가 아닙니다.*

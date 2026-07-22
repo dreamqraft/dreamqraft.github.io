@@ -3,7 +3,6 @@ title: "분배금 ETF vs TR ETF, 무엇을 고를까"
 description: "같은 지수를 추종해도 분배금 처리 방식에 따라 세금과 복리 효과가 달라집니다."
 pubDate: 2026-06-05
 category: investment
-tags: [ETF, 세금, 배당]
 ---
 
 *이 글은 개인적인 기록이며 투자 권유가 아닙니다. 세법은 바뀔 수 있으니 반드시 최신 규정을 확인하세요.*

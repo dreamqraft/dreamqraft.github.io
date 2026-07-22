@@ -3,7 +3,6 @@ title: "Three Principles for Long-Term Index Investing"
 description: "Rules I keep so that I move with the market instead of trying to beat it. (English translation)"
 pubDate: 2026-07-07
 category: english
-tags: [investing, ETF, translation]
 ---
 
 *This is a personal note, not investment advice. Translated from the Korean post ["지수 추종 장기 투자를 위한 세 가지 원칙"](../../investment/index-fund-principles/).*

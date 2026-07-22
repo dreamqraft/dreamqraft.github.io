@@ -3,7 +3,6 @@ title: "TypeScript strict 모드, 처음부터 켜는 게 싸다"
 description: "strict를 나중에 켜려다 고생한 뒤 내린 결론."
 pubDate: 2026-04-22
 category: life
-tags: [typescript, 코드품질, 공부노트]
 ---
 
 기존 프로젝트에 `strict: true`를 켰더니 에러가 수백 개 쏟아진 경험 이후, 새 프로젝트는 무조건 처음부터 켜기로 했습니다.

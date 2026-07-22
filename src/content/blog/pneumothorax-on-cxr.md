@@ -3,7 +3,6 @@ title: "흉부 X선에서 기흉 찾기: 소견과 함정"
 description: "visceral pleural line부터 deep sulcus sign까지 — 놓치기 쉬운 상황별 정리."
 pubDate: 2026-05-20
 category: life
-tags: [chest, x-ray, 응급, 판독노트]
 ---
 
 *공부 목적으로 정리한 노트이며, 실제 판독은 반드시 임상 상황과 함께 판단해야 합니다.*

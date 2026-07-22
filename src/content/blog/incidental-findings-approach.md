@@ -3,7 +3,6 @@ title: "우연 소견(incidentaloma)을 다루는 원칙"
 description: "찾으려던 것이 아닌 병변을 만났을 때 — 과잉진료와 놓침 사이에서."
 pubDate: 2026-04-10
 category: life
-tags: [incidental, 판독노트, 가이드라인]
 ---
 
 *공부 목적으로 정리한 노트이며, 실제 판독은 반드시 임상 상황과 함께 판단해야 합니다.*

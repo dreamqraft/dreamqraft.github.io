@@ -3,7 +3,6 @@ title: "GitHub Actions로 매일 도는 작업 만들기"
 description: "서버 없이 스케줄 작업을 돌리는 가장 저렴한 방법."
 pubDate: 2026-04-12
 category: life
-tags: [github-actions, 자동화, ci]
 ---
 
 "매일 아침 데이터를 받아서 처리하고 결과를 커밋한다" 같은 작업에 서버를 빌릴 필요는 없습니다. GitHub Actions의 `schedule` 트리거면 충분합니다.
